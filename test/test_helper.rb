@@ -5,8 +5,7 @@ require 'active_support/test_case'
 require 'active_record'
 require 'active_record/fixtures'
 
-require 'defv/context_assignment'
-require 'init'
+require 'context_assignment'
 
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 ActiveRecord::Base.establish_connection({

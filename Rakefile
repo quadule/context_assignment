@@ -33,6 +33,7 @@ begin
     spec.authors = ["Jan De Poorter", "Milo Winningham"]
     
     spec.add_dependency('activesupport', '~>3.0.0')
+    spec.add_dependency('activemodel', '~>3.0.0')
     spec.add_dependency('activerecord', '~>3.0.0')
   end
 rescue LoadError
