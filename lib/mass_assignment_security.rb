@@ -18,6 +18,7 @@ module ActiveModel
         end
         
         self._protected_attributes ||= { :default => blacklist.dup }
+        self._protected_attributes = { :default => _protected_attributes } unless _protected_attributes.is_a?(Hash)
         self._protected_attributes[context] ||= blacklist
       end
 
@@ -36,12 +37,14 @@ module ActiveModel
         end
         
         self._accessible_attributes ||= { :default => whitelist.dup }
+        self._accessible_attributes = { :default => _accessible_attributes } unless _accessible_attributes.is_a?(Hash)
         self._accessible_attributes[context] ||= whitelist
       end
     end
     
     def mass_assignment_authorizer
-      self.class.active_authorizer[@assignment_context || :default]
+      authorizer = self.class.active_authorizer
+      authorizer.is_a?(Hash) ? authorizer[@assignment_context || :default] : authorizer
     end
     
     def self.included(base)
