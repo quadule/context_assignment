@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{context_assignment}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jan De Poorter", "Milo Winningham"]
-  s.date = %q{2010-09-21}
+  s.date = %q{2010-09-27}
   s.description = %q{Protect your attributes from mass_assignment per context. Sometimes you want an admin to be able to edit a users is_admin boolean field, but never the user himself. This is in-context attribute setting.}
   s.email = %q{github@defv.be}
   s.extra_rdoc_files = [
