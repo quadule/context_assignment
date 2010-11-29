@@ -17,7 +17,7 @@ module ContextAssignment
     
     def define_assignment_context(args)
       options = args.extract_options!
-      if options.has_key? :context
+      if options[:context]
         raise "No such context: #{options[:context]}" unless self.class.assignment_contexts.include?(options[:context])
         @assignment_context = options[:context]
       end

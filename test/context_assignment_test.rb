@@ -63,4 +63,11 @@ class ContextAssignmentTest < ActiveSupport::TestCase
   test "Using an unknown context raises an error" do
     assert_raise(RuntimeError) { Person.new({:name => 'Jan'}, :context => :unknown)}
   end
+  
+  test "Using a nil or false context uses the default context" do
+    p = Person.create({:name => 'De Poorter', :first_name => 'Jan', :is_admin => true}, :context => nil)
+    assert_equal('De Poorter', p.name)
+    assert_equal('Jan', p.first_name)
+    assert_nil p.is_admin
+  end
 end
